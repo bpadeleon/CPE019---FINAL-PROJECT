@@ -4,7 +4,7 @@ import tensorflow as tf
 
 @st.cache_resource
 def load_model():
-  model=tf.keras.models.load_model('model.json')
+  model=tf.keras.models.load_model('model_trained_85.h5')
   return model
 model=load_model()
 st.write("""
