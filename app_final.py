@@ -1,6 +1,7 @@
 
 import streamlit as st
 import tensorflow as tf
+import numpy as np
 
 @st.cache_resource
 def load_model():
@@ -16,8 +17,8 @@ import cv2
 from PIL import Image,ImageOps
 import numpy as np
 def import_and_predict(image_data,model):
-    size=(64,64,3)
-    image=ImageOps.fit(image_data,size)
+    size=(64,64)
+    image=ImageOps.fit(image_data,size, Image.Resampling.LANCZOS)
     img=np.asarray(image)
     img_reshape=img[np.newaxis,...]
     prediction=model.predict(img_reshape)
